@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57b8993640a304a488947a16db5b89c5, type: 3}
-  m_Name: cube
+  m_Name: cone1
   m_EditorClassIdentifier: 
-  itemName: cube
+  itemName: cone1
   itemIcon: {fileID: 21300000, guid: e7cbf2d6af7ccb54cb349ee45b976087, type: 3}
-  weight: 7
-  durability: 10
-  itemPrefab: {fileID: 4908284898785125040, guid: 5afa5320127632944a85bdb914c9cdc2, type: 3}
+  weight: 4
+  durability: 5
+  itemPrefab: {fileID: 6125111093514564614, guid: 33552f624eb09af4685f428eb2c0a70a, type: 3}
