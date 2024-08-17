@@ -1,24 +1,38 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InventoryManager : MonoBehaviour 
 {
-    public List<Item> items = new List<Item>();
+    private List<GameObject> itemsInInventory = new List<GameObject>();
+    private bool isPointerOver = false;
 
-    public void AddItem(Item item) 
-    {
-        items.Add(item);
-        UpdateInventoryUI();
+    public void OnDrop(PointerEventData eventData) {
+        GameObject draggedItem = DragHandler.itemBeingDragged;
+        if (draggedItem != null && !itemsInInventory.Contains(draggedItem)) {
+            AddItem(draggedItem);
+        }
     }
 
-    public void RemoveItem(Item item) 
-    {
-        items.Remove(item);
-        UpdateInventoryUI();
+    private void AddItem(GameObject item) {
+        itemsInInventory.Add(item);
+        item.transform.SetParent(transform, false);
+        item.transform.position = transform.position;
+        item.GetComponent<CanvasGroup>().blocksRaycasts = true;
     }
 
-    void UpdateInventoryUI() 
-    {
-        // Code to update the UI when inventory changes
+    public void OnPointerEnter(PointerEventData eventData) {
+        isPointerOver = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        isPointerOver = false;
+    }
+
+    public void RemoveItem(GameObject item) {
+        if (itemsInInventory.Contains(item)) {
+            itemsInInventory.Remove(item);
+            Destroy(item);
+        }
     }
 }
