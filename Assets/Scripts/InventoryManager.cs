@@ -1,38 +1,36 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI; 
 
 public class InventoryManager : MonoBehaviour 
 {
-    private List<GameObject> itemsInInventory = new List<GameObject>();
-    private bool isPointerOver = false;
+    public List<InventoryItem> items; // List of items to add to the inventory
+    public GameObject itemButtonPrefab; // Button prefab with Image and Button components
+    public Transform inventoryPanel; // Reference to the UI panel where buttons will be placed
 
-    public void OnDrop(PointerEventData eventData) {
-        GameObject draggedItem = DragHandler.itemBeingDragged;
-        if (draggedItem != null && !itemsInInventory.Contains(draggedItem)) {
-            AddItem(draggedItem);
+    private void Start()
+    {
+        foreach (var item in items)
+        {
+            AddItemToInventory(item);
         }
     }
 
-    private void AddItem(GameObject item) {
-        itemsInInventory.Add(item);
-        item.transform.SetParent(transform, false);
-        item.transform.position = transform.position;
-        item.GetComponent<CanvasGroup>().blocksRaycasts = true;
+    private void AddItemToInventory(InventoryItem item)
+    {
+        GameObject button = Instantiate(itemButtonPrefab, inventoryPanel);
+        button.GetComponent<Image>().sprite = item.itemIcon;
+        button.GetComponent<Button>().onClick.AddListener(() => OnItemClicked(item));
     }
 
-    public void OnPointerEnter(PointerEventData eventData) {
-        isPointerOver = true;
-    }
+    private void OnItemClicked(InventoryItem item)
+    {
+        // Instantiate the 3D model at position (0,0,0)
+        GameObject instantiatedObject = Instantiate(item.itemPrefab, Vector3.zero, Quaternion.identity);
+        instantiatedObject.name = item.itemName;
 
-    public void OnPointerExit(PointerEventData eventData) {
-        isPointerOver = false;
-    }
-
-    public void RemoveItem(GameObject item) {
-        if (itemsInInventory.Contains(item)) {
-            itemsInInventory.Remove(item);
-            Destroy(item);
-        }
+        // Enable moving and scaling the instantiated object
+        instantiatedObject.AddComponent<Draggable>();
+        instantiatedObject.AddComponent<Scalable>();
     }
 }
