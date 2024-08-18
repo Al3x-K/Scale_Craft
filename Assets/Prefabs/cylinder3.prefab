@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  moveSpeed: 5
+  cameraController: {fileID: 0}
 --- !u!65 &2367723204723010048
 BoxCollider:
   m_ObjectHideFlags: 0
