@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour 
 {
-    public List<InventoryItem> items; // List of items to add to the inventory
-    public GameObject itemButtonPrefab; // Button prefab with Image and Button components
-    public Transform inventoryPanel; // Reference to the UI panel where buttons will be placed
+    public List<InventoryItem> items; 
+    public GameObject itemButtonPrefab; 
+    public Transform inventoryPanel; 
 
     private void Start()
     {
@@ -29,8 +29,6 @@ public class InventoryManager : MonoBehaviour
         GameObject instantiatedObject = Instantiate(item.itemPrefab, Vector3.zero, Quaternion.identity);
         instantiatedObject.name = item.itemName;
 
-        // Enable moving and scaling the instantiated object
-        instantiatedObject.AddComponent<Draggable>();
-        instantiatedObject.AddComponent<Scalable>();
+    
     }
 }

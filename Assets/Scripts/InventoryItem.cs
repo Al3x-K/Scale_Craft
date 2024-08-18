@@ -7,5 +7,5 @@ public class InventoryItem : ScriptableObject
     public Sprite itemIcon;
     public float weight;
     public float durability;
-    public GameObject itemPrefab; // Prefab for the 3D model
+    public GameObject itemPrefab; 
 }
