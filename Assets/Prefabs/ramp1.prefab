@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 338224017240953536}
   - component: {fileID: 8864212163940924829}
   - component: {fileID: 8753403453670894271}
-  - component: {fileID: 1631970035120526002}
+  - component: {fileID: 6664285084304189193}
   m_Layer: 0
   m_Name: ramp1
   m_TagString: Untagged
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
---- !u!64 &1631970035120526002
-MeshCollider:
+--- !u!65 &6664285084304189193
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -148,7 +148,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -260652956059607485, guid: bc5750c76d8e86a41bd67ac19150ad16, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.010000003}
+  m_Center: {x: 0, y: 0, z: 0.0050000013}

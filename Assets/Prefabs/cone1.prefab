@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3714403606170480413}
   - component: {fileID: 5380111482694082869}
   - component: {fileID: 1907400330467961133}
-  - component: {fileID: 4883789963890326422}
+  - component: {fileID: 7405107258928794194}
   m_Layer: 0
   m_Name: cone1
   m_TagString: Untagged
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
---- !u!64 &4883789963890326422
-MeshCollider:
+--- !u!65 &7405107258928794194
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -116,10 +116,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8992848248433477153, guid: b3a79743c9cf1df4b8dcf8d6f0d4a93e, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.02, y: 0.020000005, z: 0.020000005}
+  m_Center: {x: 0, y: 0, z: 0.010000003}
 --- !u!1 &6125111093514564614
 GameObject:
   m_ObjectHideFlags: 0
